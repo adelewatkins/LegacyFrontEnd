@@ -25,7 +25,7 @@ function ItemPropTypes(props) {
     )
 }
 
-ItemPropTypes.prototype = {
+ItemPropTypes.propType = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired
