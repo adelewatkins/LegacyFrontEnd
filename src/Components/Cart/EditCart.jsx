@@ -8,7 +8,7 @@ function EditCart() {
     const [name, setName] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8082/cart/get")
+        axios.get("http://localhost:8082/cart/get/" + params.id)
             .then((res) => {
                 console.log(res);
                 setName(res.data.name);

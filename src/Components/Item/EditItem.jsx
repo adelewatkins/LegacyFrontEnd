@@ -10,7 +10,7 @@ function EditItem() {
     const [quantity, setQuantity] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8082/item/get")
+        axios.get("http://localhost:8082/item/get/" + params.id)
         .then((res) => {
             console.log(res);
             setName(res.data.name);
