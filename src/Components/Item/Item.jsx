@@ -9,74 +9,92 @@ function Item() {
     const [items, setItems] = useState([]);
 
     function getItems() {
-        axios.get("http://localhost:8082/item/get").then((response) => {
-            setItems(response.data);
-        });
+        axios.get("http://localhost:8082/item/get")
+            .then((response) => { setItems(response.data) })
     }
     useEffect(getItems, [])
 
+    function CheckItem() {
+
+
+        axios.get("http://localhost:8082/item/get").then(response => {
+            console.log(response)
+            for (const items of response.data) {
+                if (items.name.toLowerCase() === name.toLowerCase()) {
+                    alert("Item already exists")
+                    return;
+                }
+            }
+
+            axios.post("http://localhost:8082/item/create",
+                {
+                    name,
+                    price,
+                    quantity
+                })
+                .then(response => {
+                    setName("");
+                    setPrice("");
+                    setQuantity("");
+                    getItems();
+                })
+                .catch(err => console.error(err))
+
+        })
+    }
+
+
+
     return (
-        <div className="row">
-            <div className="col">
-                <form
-                    className="drop-menu"
-                    accordion
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        axios
-                            .post("http://localhost:8082/item/create", {
-                                name,
-                                price: parseInt(price),
-                                quantity: parseInt(quantity)
-                            })
-                            .then((response) => {
-                                setName("");
-                                setPrice("");
-                                setQuantity("");
-                                getItems();
-                            })
-                            .catch((err) => console.error(err));
-                    }}
 
-                >
-                    <h1>Our Items</h1>
+        <div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          CheckItem();
+        }}>
 
-                    <label htmlFor="name">Item Name</label>
-                    <input
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        id="name"
-                        type="text"
-                        className="form-control"
-                    ></input>{" "}
-                    <label htmlFor="price">Price</label>
-                    <input
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                        id="price"
-                        type="£"
-                        className="form-control"
-                    ></input>{" "}
-                    <label htmlFor="quantity">Quantity</label>
-                    <input
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
-                        id="quantity"
-                        type="number"
-                        className="form-control"
-                    ></input>{" "}
-                    <br />
-                    <div>
-                        <button type="submit" className="btn btn-danger btn-md">
-                            {" "}
-                            Add Item{" "}
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <DisplayItems items={items} />
-        </div>
-    )
+        {" "}
+        <h1>Items &nbsp;</h1>
+        <label htmlFor="name">Item Name &nbsp;</label>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          id="name"
+          type="text"
+          className="form-control"
+        ></input>
+        <label htmlFor="price">Item Price &nbsp;</label>
+        <input
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          id="price"
+          type="£"
+          className="form-control"
+        ></input>
+        <label htmlFor="quantity">Quantity &nbsp;</label>
+        <input
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          id="quantity"
+          type="Number"
+          className="form-control"
+        ></input>
+        
+        <br />
+        <button type="submit" className="btn btn-success btn-md">
+          Add Item
+        </button>
+        <br />
+      </form>
+      <br />
+      <br />
+      <div>
+        <DisplayItems items={items} getItems={getItems}/>
+      </div>
+    </div>
+  );
 }
+
 
 export default Item;

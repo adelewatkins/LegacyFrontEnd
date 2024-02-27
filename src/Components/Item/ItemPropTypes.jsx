@@ -1,26 +1,34 @@
 
 import PropTypes from "prop-types";
+import Item from "./Item";
+import { Card } from "react-bootstrap";
+import axios from "axios";
 
-function ItemPropTypes() {
+function ItemPropTypes(props) {
 
-    ItemPropTypes.prototype = {
-        name: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        quantity: PropTypes.number.isRequired
-    };
 
     return (
-<div>
-        <p>{"Item Name: " + props.name}</p>
-        <p>{"Item Price: £" + props.price}</p>
-        <p>{"Quantity: " + props.quantity}</p>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="https://th.bing.com/th/id/R.9b757e2f5b3f68df7186261c36b892c2?rik=X1aQeJyJjP4oaQ&riu=http%3a%2f%2fwww.musicinminnesota.com%2fwp-content%2fuploads%2f2017%2f08%2fPhotos-Coming-Soon.jpg&ehk=aUQtqB0bWSFKlzHvFnqj1Vdzrg1AoQltTvZejPMV4Pk%3d&risl=&pid=ImgRaw&r=0" />
+            <Card.Body>
+                <Card.Title>{props.name}</Card.Title>
+                <Card.Text>
+                {"Price: £" + props.price}
+                <br/>
+                {"Quantity available: " + props.quantity}
+
+            </Card.Text>
+        </Card.Body>
+    </Card >
 
 
-
-</div>
-
-
-      );
+    )
 }
+
+ItemPropTypes.prototype = {
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired
+};
 
 export default ItemPropTypes;
