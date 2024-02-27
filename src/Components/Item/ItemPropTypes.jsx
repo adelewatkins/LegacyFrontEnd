@@ -3,8 +3,32 @@ import PropTypes from "prop-types";
 import Item from "./Item";
 import { Card } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function ItemPropTypes(props) {
+
+    const navigate = useNavigate();
+    const handleShopping = () =>{ navigate("/myCart" )
+    
+    } 
+    function buttonDisplay() {
+    
+        if(props.quantity == 0 ) {
+            return (
+              <>
+                <button style={{marginLeft: "10px"}} className='btn btn-danger' 
+                disabled="disabled">Out Of Stock</button>
+              </>
+            )
+          } else {
+            return (
+                <>
+                <button style={{marginLeft: "10px"}} className='btn btn-success ' 
+                onClick={handleShopping}>Add To Cart</button>
+                </>
+            )
+          }
+        }
 
 
     return (
@@ -18,6 +42,14 @@ function ItemPropTypes(props) {
                 {"Quantity available: " + props.quantity}
 
             </Card.Text>
+            &nbsp;
+          {buttonDisplay()}
+          <button onClick={() =>
+              navigate("/item/edit/" + props.id)
+            }style={{ marginRight: "10px"}} type="submit" className="btn btn-warning btn-md">
+              {" "}
+              Edit Item{" "}
+            </button> 
         </Card.Body>
     </Card >
 
