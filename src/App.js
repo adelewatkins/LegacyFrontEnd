@@ -5,6 +5,7 @@ import Home from "./Components/Home";
 import Item from "./Components/Item/Item";
 import Cart from "./Components/Cart/Cart";
 import EditItem from './Components/Item/EditItem';
+import EditCart from './Components/Cart/EditCart';
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Route path="/items" element={<Item />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/item/edit/:id" element={<EditItem />} />
+      <Route path="/cart/edit/:id" element={<EditCart />} />
       </Routes>
     </Router>
   );

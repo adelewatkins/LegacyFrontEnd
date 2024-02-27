@@ -38,7 +38,7 @@ function EditItem() {
         <div>
         <form onSubmit={handleSubmit}>
         {" "}
-        <h1>Items &nbsp;</h1>
+        <h1>Edit Item &nbsp;</h1>
         <label htmlFor="name">Item Name &nbsp;</label>
         <input
           value={name}
