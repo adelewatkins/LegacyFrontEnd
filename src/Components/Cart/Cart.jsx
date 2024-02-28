@@ -47,7 +47,7 @@ function Cart() {
   
           {" "}
         
-    <h1>Carts</h1>
+    <h1>My Cart</h1>
     <label htmlFor="name">Cart Name &nbsp;</label>
         <input
           value={name}

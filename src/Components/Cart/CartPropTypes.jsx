@@ -7,6 +7,12 @@ import { useNavigate } from "react-router-dom";
 function CartPropTypes(props) {
     const navigate = useNavigate();
 
+    function deleteCart(){
+      axios.delete("http://localhost:8082/cart/remove/" + props.id)
+      .then(response => {props.getCarts()})
+      .catch(err => console.error(err))
+    };
+
 
     return (
         <Card style={{ width: '18rem' }}>
@@ -27,12 +33,7 @@ function CartPropTypes(props) {
               {" "}
               Edit Cart{" "}
             </button> 
-            <button onClick={() =>
-              navigate("/cart/delete/" + props.id)
-            }style={{ marginRight: "10px"}} type="submit" className="btn btn-danger btn-md">
-              {" "}
-              Delete Cart{" "}
-            </button> 
+            <button style={{marginTop: "10px"}} className="btn btn-danger" onClick={deleteCart}>Delete Cart</button>
     
         </Card.Body>
     </Card >

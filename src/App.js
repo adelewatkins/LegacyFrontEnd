@@ -23,6 +23,7 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/item/edit/:id" element={<EditItem />} />
       <Route path="/cart/edit/:id" element={<EditCart />} />
+      
       </Routes>
     </Router>
   );
