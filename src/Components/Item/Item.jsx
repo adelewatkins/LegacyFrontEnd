@@ -7,6 +7,7 @@ function Item() {
     const [price, setPrice] = useState("");
     const [quantity, setQuantity] = useState("");
     const [items, setItems] = useState([]);
+    
 
     function getItems() {
         axios.get("http://localhost:8082/item/get")

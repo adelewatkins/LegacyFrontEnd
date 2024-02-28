@@ -13,6 +13,9 @@ function CartPropTypes(props) {
       .catch(err => console.error(err))
     };
 
+    
+    
+
 
     return (
         <Card style={{ width: '18rem' }}>
@@ -21,7 +24,7 @@ function CartPropTypes(props) {
                 <Card.Text>
             </Card.Text>
             <button onClick={() =>
-              navigate("/items/")
+              navigate("/cart/" + props.id)
             }style={{ marginRight: "10px"}} type="submit" className="btn btn-success btn-lg">
               {" "}
               Go Shopping{" "}

@@ -3,14 +3,22 @@ import PropTypes from "prop-types";
 import Item from "./Item";
 import { Card } from "react-bootstrap";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import EditItem from "./EditItem";
 
 function ItemPropTypes(props) {
 
+  
+
     const navigate = useNavigate();
-    const handleShopping = () =>{ navigate("/cart" )
-    
+    const handleShopping = () =>{ navigate("/cart" )    
     } 
+
+    
+      
+    
+
     function buttonDisplay() {
     
         if(props.quantity == 0 ) {
