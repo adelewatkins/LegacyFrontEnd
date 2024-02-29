@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 function ItemPropTypes(props) {
 
     const navigate = useNavigate();
-    const handleShopping = () =>{ navigate("/cart" )
+    const handleShopping = () =>{ navigate("/cart/" + props.id)
     
     } 
     function buttonDisplay() {

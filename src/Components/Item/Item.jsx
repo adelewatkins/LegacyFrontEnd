@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayItems from "./DisplayItems";
+import { useNavigate } from "react-router-dom";
 
 function Item() {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [quantity, setQuantity] = useState("");
     const [items, setItems] = useState([]);
+    const navigate = useNavigate("")
 
     function getItems() {
         axios.get("http://localhost:8082/item/get")
@@ -37,6 +39,7 @@ function Item() {
                     setPrice("");
                     setQuantity("");
                     getItems();
+                    navigate("/items")
                 })
                 .catch(err => console.error(err))
 

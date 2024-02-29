@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayCarts from "./DisplayCarts";
 
-function Cart() {
+function Cart(props) {
+    const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [carts, setCarts] = useState([]);
 
     function getCarts() {
-        axios.get("http://localhost:8082/cart/get")
+        axios.get("http://localhost:8082/Cart/get")
             .then((response) => { setCarts(response.data) })
     }
     useEffect(getCarts, [])
@@ -15,7 +16,7 @@ function Cart() {
     function CheckCarts() {
 
 
-        axios.get("http://localhost:8082/cart/get").then(response => {
+        axios.get("http://localhost:8082/Cart/get").then(response => {
             console.log(response)
             for (const carts of response.data) {
                 if (carts.name.toLowerCase() === name.toLowerCase()) {
@@ -24,7 +25,7 @@ function Cart() {
                 }
             }
 
-            axios.post("http://localhost:8082/cart/create",
+            axios.post("http://localhost:8082/Cart/create",
                 {
                     name
                 })
@@ -47,7 +48,7 @@ function Cart() {
   
           {" "}
         
-    <h1>My Cart</h1>
+    <h1>My Cart &nbsp;</h1>
     <label htmlFor="name">Cart Name &nbsp;</label>
         <input
           value={name}
