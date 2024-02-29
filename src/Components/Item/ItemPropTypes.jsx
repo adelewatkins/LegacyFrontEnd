@@ -45,7 +45,7 @@ function ItemPropTypes(props) {
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>
-                {"Price: £" + props.price}
+                {"Price: £" + props.price.toFixed(2)}
                 <br/>
                 {"Quantity available: " + props.quantity}
 

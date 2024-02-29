@@ -15,7 +15,9 @@ function Item() {
     }
     useEffect(getItems, [])
 
-    function CheckItem() {
+    const formatedPrice = parseFloat(price).toFixed(2);
+
+    function checkItem() {
 
 
         axios.get("http://localhost:8082/item/get").then(response => {
@@ -30,7 +32,7 @@ function Item() {
             axios.post("http://localhost:8082/item/create",
                 {
                     name,
-                    price,
+                    price: formatedPrice,
                     quantity
                 })
                 .then(response => {
@@ -52,7 +54,7 @@ function Item() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          CheckItem();
+          checkItem();
         }}>
 
         {" "}
