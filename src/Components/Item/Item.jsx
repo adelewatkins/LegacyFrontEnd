@@ -5,7 +5,7 @@ import DisplayItems from "./DisplayItems";
 function Item() {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-    const [quantity, setQuantity] = useState("1");
+    const [quantity, setQuantity] = useState(1);
     const [items, setItems] = useState([]);
     
 
@@ -38,7 +38,7 @@ function Item() {
                 .then(response => {
                     setName("");
                     setPrice("");
-                    setQuantity("");
+                    setQuantity(1);
                     getItems();
                 })
                 .catch(err => console.error(err))
