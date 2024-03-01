@@ -5,7 +5,7 @@ import DisplayItems from "./DisplayItems";
 function Item() {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-    const [quantity, setQuantity] = useState("");
+    const [quantity, setQuantity] = useState("1");
     const [items, setItems] = useState([]);
     
 
@@ -75,14 +75,14 @@ function Item() {
           type="£"
           className="form-control"
         ></input>
-        <label htmlFor="quantity">Quantity &nbsp;</label>
+        {/* <label htmlFor="quantity">Quantity &nbsp;</label>
         <input
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
           id="quantity"
           type="Number"
           className="form-control"
-        ></input>
+        ></input> */}
         
         <br />
         <button type="submit" className="btn btn-success btn-md">

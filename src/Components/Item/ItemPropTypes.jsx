@@ -12,8 +12,20 @@ function ItemPropTypes(props) {
   
 
     const navigate = useNavigate();
-    const handleShopping = () =>{ navigate("/cart" )    
-    } 
+    const [quantity, setQuantity] = useState("");
+     
+
+    const addToCart = () => {
+      axios.patch(`http://localhost:8082/item/checkOut/${props.id}/1`) 
+          .then(response => {
+              console.log('Item added to cart:', response.data);
+              
+              navigate("/cart/1/")
+          })
+          .catch(error => {
+              console.error('Error adding item to cart:', error);
+          });
+  }
 
     
       
@@ -32,7 +44,7 @@ function ItemPropTypes(props) {
             return (
                 <>
                 <button style={{marginLeft: "10px"}} className='btn btn-success ' 
-                onClick={handleShopping}>Add To Cart</button>
+                onClick={addToCart}>Add To Cart</button>
                 </>
             )
           }

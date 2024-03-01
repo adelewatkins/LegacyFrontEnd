@@ -27,7 +27,7 @@ function CartPropTypes(props) {
               navigate("/cart/" + props.id)
             }style={{ marginRight: "10px"}} type="submit" className="btn btn-success btn-lg">
               {" "}
-              Go Shopping{" "}
+              View My Cart{" "}
             </button> 
             <br/>
             <button onClick={() =>
