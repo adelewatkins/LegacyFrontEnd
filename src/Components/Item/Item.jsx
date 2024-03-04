@@ -22,12 +22,12 @@ function Item() {
 
         axios.get("http://localhost:8082/item/get").then(response => {
             console.log(response)
-            for (const items of response.data) {
-                if (items.name.toLowerCase() === name.toLowerCase()) {
-                    alert("Item already exists")
-                    return;
-                }
-            }
+            // for (const items of response.data) {
+            //     if (items.name.toLowerCase() === name.toLowerCase()) {
+            //         alert("Item already exists")
+            //         return;
+            //     }
+            // }
 
             axios.post("http://localhost:8082/item/create",
                 {
@@ -75,6 +75,7 @@ function Item() {
           type="£"
           className="form-control"
         ></input>
+        
         {/* <label htmlFor="quantity">Quantity &nbsp;</label>
         <input
           value={quantity}
@@ -83,6 +84,8 @@ function Item() {
           type="Number"
           className="form-control"
         ></input> */}
+
+        
         
         <br />
         <button type="submit" className="btn btn-success btn-md">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Card } from 'react-bootstrap';
+import PropTypes from "prop-types";
 
 function CartItems() {
     const [shopping, setShopping] = useState([]);
@@ -41,11 +42,6 @@ function CartItems() {
         setCartTotal(total.toFixed(2));
     }
 
-
-
-
-
-
     return (
 
         <div>
@@ -57,20 +53,31 @@ function CartItems() {
                 Continue Shopping</button>
             <br />
             <br />
-            <h1>Items in your cart</h1>
-            <br/>
+            <h1>Your Cart Summary</h1>
+            <br />
             <h3>Number of items: {totalItems}</h3>
             <h3>Cart Total: £{cartTotal}</h3>
-            <br/>
+            <br />
             <div className="row">
                 {shopping.items && shopping.items.length > 0 ? (
                     shopping.items.map(item => (
-                        <div key={item.id} className="col-md-4">
+                        <div key={item.id} className="col-md-4 col-lg-2 col-sml-8">
                             <Card style={{ width: '18rem', marginBottom: '20px' }}>
                                 <Card.Body>
                                     <Card.Title>{item.name}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{"£" + item.price.toFixed(2)}</Card.Subtitle>
                                     <Card.Text>
+                                        <button style={{ marginLeft: "10px" }} className='btn btn-success '
+                                            onClick={() => {
+                                                axios.patch("http://localhost:8082/item/checkIn/" + item.id)
+                                                    .then(response => {
+                                                        console.log('Item removed from cart', response.data);
+                                                        shoppingBasket();
+                                                    })
+                                                    .catch(error => {
+                                                        console.error('Error checking item back in:', error);
+                                                    });
+                                            }}>Remove Item</button>
                                     </Card.Text>
                                 </Card.Body>
                             </Card>

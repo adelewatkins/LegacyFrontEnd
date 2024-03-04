@@ -16,7 +16,6 @@ function DisplayCarts(props) {
     
     return ( 
         <div>
-            <h2>Your Carts</h2>
             <br />
             <div className="container-fluid">
                 <div className="row">{cartArray}</div>

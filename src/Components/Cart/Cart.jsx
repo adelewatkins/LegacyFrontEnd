@@ -29,6 +29,10 @@ function Cart(props) {
       .then()
   }
 
+  function cartExists() {
+    return carts.length > 0;
+  }
+
   return (
     <div>
       <form
@@ -39,20 +43,26 @@ function Cart(props) {
 
         {" "}
 
-        <h1>My Cart</h1>
+        <h1>Create Your Cart</h1>
         <label htmlFor="name">Cart Name &nbsp;</label>
         <input
+        placeholder="Enter cart name.."
           value={name}
           onChange={(e) => setName(e.target.value)}
           id="name"
           type="text"
           className="form-control"
         ></input>
-        <br />
-        <button type="submit" className="btn btn-success btn-md">
-          Add Cart
+        
+        <button 
+        type="submit" 
+        className="btn btn-success btn-lg" 
+        disabled={cartExists()}
+        >
+          Submit
         </button>
-        <br />
+        
+  
       </form>
       <br />
       <br />
