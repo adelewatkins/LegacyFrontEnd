@@ -14,10 +14,12 @@ function CartItems() {
     function shoppingBasket() {
         axios.get("http://localhost:8082/cart/get/" + params.id)
             .then((response) => {
-                console.log("response" + response.data); 
+                console.log("response" + response.data);
                 setShopping(response.data);
                 calculateTotalItems(response.data.items);
                 calculateCartTotal(response.data.items);
+
+
             })
             .catch((err) => console.error(err))
     }
@@ -26,21 +28,20 @@ function CartItems() {
     console.log(shopping)
 
     function calculateTotalItems(items) {
-        let total = 0;
-        items.forEach(item => {
-            total += 1;
-        });
+        const total = items.length;
         setTotalItems(total);
-    
+
     }
 
     function calculateCartTotal(items) {
         let total = 0;
-        items.forEach(item => {
-            total += item.price
-        });
-        setCartTotal(total);
+        for (let i = 0; i < items.length; i++) {
+            total += items[i].price;
+        }
+        setCartTotal(total.toFixed(2));
     }
+
+
 
 
 
@@ -57,27 +58,28 @@ function CartItems() {
             <br />
             <br />
             <h1>Items in your cart</h1>
+            <br/>
             <h3>Number of items: {totalItems}</h3>
             <h3>Cart Total: £{cartTotal}</h3>
+            <br/>
             <div className="row">
-            {shopping.items && shopping.items.length > 0 ? (
-                shopping.items.map(item => (
-                    <div key={item.id} className="col-md-4">
-                        <Card style={{ width: '18rem', marginBottom: '20px' }}>
-                            <Card.Body>
-                                <Card.Title>{item.name}</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">{"£" + item.price}</Card.Subtitle>
-                                <Card.Text>
-                                    Quantity: {item.quantity}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                ))
-            ) : (
-                <p>No items in the cart</p>
-            )}
-        </div>
+                {shopping.items && shopping.items.length > 0 ? (
+                    shopping.items.map(item => (
+                        <div key={item.id} className="col-md-4">
+                            <Card style={{ width: '18rem', marginBottom: '20px' }}>
+                                <Card.Body>
+                                    <Card.Title>{item.name}</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted">{"£" + item.price.toFixed(2)}</Card.Subtitle>
+                                    <Card.Text>
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    ))
+                ) : (
+                    <p>No items in the cart</p>
+                )}
+            </div>
         </div>
     );
 }

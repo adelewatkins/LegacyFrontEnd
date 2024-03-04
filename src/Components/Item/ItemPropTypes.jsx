@@ -16,10 +16,11 @@ function ItemPropTypes(props) {
      
 
     const addToCart = () => {
+     
       axios.patch(`http://localhost:8082/item/checkOut/${props.id}/1`) 
           .then(response => {
               console.log('Item added to cart:', response.data);
-              
+              // setQuantity(0);
               navigate("/cart/1/")
           })
           .catch(error => {
