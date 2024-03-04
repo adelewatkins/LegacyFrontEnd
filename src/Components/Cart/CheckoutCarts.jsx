@@ -15,7 +15,7 @@ function CheckoutCarts() {
 
 
     function getCheckoutCart(){
-        axios.get("http://localhost:8082/Items/get/" + params.id)
+        axios.get("http://localhost:8082/item/get/" + params.id)
           .then((response) => {
             console.log("Response:", response);
             setProperty(response.data);
@@ -27,7 +27,7 @@ function CheckoutCarts() {
     return;
         }
 
-        axios.get("http://localhost:8082/Items/get",
+        axios.get("http://localhost:8082/item/get",
         {
             name,
             price,
