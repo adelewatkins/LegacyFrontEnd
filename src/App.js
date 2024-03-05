@@ -9,65 +9,44 @@ import EditItem from './Components/Item/EditItem';
 import EditCart from './Components/Cart/EditCart';
 
 import Login from "./Components/Login/Login";
+import Preferences from './Preferences';
 
 
 function App() {
   return (
     <div>
-<Login/>
+      <Router>
+        <div>
+          <Link to="/">Home</Link>
+          <br></br>
+          <Link to="/items">Items</Link>
+          <br></br>
+          <Link to="/cart">My Cart</Link>
+          <br>
+          </br>
+        </div>
+        <Routes>
+          <Route path="/" element={<Preferences />} >
+            <Route path="/" element={<Home />} />
+          </Route>
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/items" element={<Item />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/item/edit/:id" element={<EditItem />} />
+          <Route path="/cart/edit/:id" element={<EditCart />} />
 
-    </div>
+        </Routes>
+      </Router>
+
+    </div >
+
+
+
   );
 }
 
-// function App() {
-//   const [token, setToken] = useState();
-//   if(!token) {
-//     return <Login setToken={setToken} />
-//   }
-//   return (
-//     <div className="wrapper">
-//       <h1>Login</h1>
-//       <BrowserRouter>
-//         <Switch>
-//           <Route path="/userpage">
-//             <UserPage />
-//           </Route>
-//           <Route path="/preferences">
-//             <Preferences />
-//           </Route>
-//         </Switch>
-//       </BrowserRouter>
-//     </div>
-//   );
-// }
 
-
-  
-    // <Router>
-    //   <div>
-    //     <Link to="/">Home</Link>
-    //     <br></br>
-    //     <Link to="/items">Items</Link>
-    //     <br></br>
-    //     <Link to="/cart">My Cart</Link>
-    //     <br>
-    //     </br>
-           
- 
-
-    //   </div>
-    //   <Routes>
-    //   <Route path="/" element={<Home />} />
-    //   <Route path="/items" element={<Item />} />
-    //   <Route path="/cart" element={<Cart />} />
-    //   {/* <Route path="/Login"element={<Login/>} /> */}
-    //   <Route path="/item/edit/:id" element={<EditItem />} />
-    //   <Route path="/cart/edit/:id" element={<EditCart />} />
-      
-    //   </Routes>
-    // </Router>
-  
 
 
 export default App;

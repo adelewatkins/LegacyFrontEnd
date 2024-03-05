@@ -3,19 +3,29 @@ import './Login.css';
 // import { defaultMethod } from 'react-router-dom/dist/dom';
 import { FaRegUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-
+import { useNavigate } from 'react-router-dom';
+import e from 'cors';
 
 
 const Login = ()=> {
+    const navigate=useNavigate();
+    const handleSubmit= (e)=> {e.preventDefault();
+    navigate("/Home")}
+    // axios.post('https://localhost:3000/Login',{username,password}
+    // .then(result=>{console.log(result)
+    // }))
+    // .catch (err=> console.log(err))
+
+    
 return(
     <div className='wrapper'>
-        <form action ="">
+        <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div className = "input-box">
             <input type ="text" placeholder='Username' required /><FaRegUser className='icon' />
     </div>
     <div className = "input-box">
-            <input type ="text" placeholder='Password' required /><FaLock className='icon'/>
+            <input type ="password" placeholder='Password' required /><FaLock className='icon'/>
     </div>
     <div className = "remember-forgot">
          <label><input type ="checkbox" />Remember me </label>
@@ -30,6 +40,6 @@ return(
 );
 
 
-
 }
+
 export default Login;
