@@ -10,6 +10,7 @@ import CartItems from './Components/CartItems/CartItems';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Login from './Components/Login/Login';
 
 
 
@@ -28,7 +29,7 @@ function App() {
               className="d-inline-block align-top"
             />{' '}</Navbar.Brand>
           <Nav className="me-auto">
-          <Nav.Link href='/'>Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+          <Nav.Link href='/home'>Home <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
   <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 </svg></Nav.Link>
           <Nav.Link href="/items">Items <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cake" viewBox="0 0 16 16">
@@ -43,7 +44,8 @@ function App() {
 
       
       <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/items" element={<Item />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/item/edit/:id" element={<EditItem />} />
