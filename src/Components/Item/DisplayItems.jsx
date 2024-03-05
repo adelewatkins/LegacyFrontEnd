@@ -22,7 +22,8 @@ function DisplayItems(props) {
 
     return (
         <div>
-            <h2>Items For Sale</h2>
+            <h2>Items For Sale </h2>
+            <h6>7.25% service charge will be applied at checkout</h6>
             <br />
             <div className="container-fluid">
                 <div className="row">{itemArray}</div>

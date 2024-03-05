@@ -37,7 +37,7 @@ function CartItems() {
     function calculateCartTotal(items) {
         let total = 0;
         for (let i = 0; i < items.length; i++) {
-            total += items[i].price;
+            total = (total + items[i].price) * 1.0725;
         }
         setCartTotal(total.toFixed(2));
     }
@@ -46,17 +46,19 @@ function CartItems() {
 
         <div>
             <br />
-
+            <h1>Your Cart Summary</h1>
+            <br />
             <button onClick={() =>
                 navigate("/items")
             } style={{ marginRight: "10px" }} type="submit" className="btn btn-info btn-md">
                 Continue Shopping</button>
             <br />
             <br />
-            <h1>Your Cart Summary</h1>
-            <br />
-            <h3>Number of items: {totalItems}</h3>
-            <h3>Cart Total: £{cartTotal}</h3>
+
+            <h4>Cart Total: £{cartTotal} (incl service charge)</h4>
+
+            <h4>Number of items: {totalItems}</h4>
+
             <br />
             <div className="row">
                 {shopping.items && shopping.items.length > 0 ? (
