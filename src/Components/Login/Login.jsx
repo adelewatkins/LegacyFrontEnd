@@ -1,16 +1,22 @@
 import React from 'react';
-import { useNavigate, } from "react-router-dom";
+import './Login.css';
 // import { defaultMethod } from 'react-router-dom/dist/dom';
 import { FaRegUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-
+import { useNavigate } from 'react-router-dom';
+import e from 'cors';
 
 
 const Login = ()=> {
-    const navigate = useNavigate();
+    const navigate=useNavigate();
+    const handleSubmit= (e)=> {e.preventDefault();
+    navigate("/home")}
+    
+
+    
 return(
     <div className='wrapper'>
-        <form action ="">
+        <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div className = "input-box">
             <input type ="text" placeholder='Username' required /><FaRegUser className='icon' />
@@ -33,6 +39,6 @@ return(
 );
 
 
-
 }
+
 export default Login;
