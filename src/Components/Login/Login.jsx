@@ -20,11 +20,12 @@ return(
     </div>
     <div className = "remember-forgot">
          <label><input type ="checkbox" />Remember me </label>
-         <a href='https://http.dog/403.jpg'>Forgot password?</a>
+
     </div>
     <button onClick={() =>
                 navigate("/home")}type ="submit">Login</button>
     <div className= "register-link">
+    <a href='https://http.dog/403.jpg'>Forgot password?</a>
         <p>Don't have an account?<a href="#"></a></p>
         </div>
         </form>
