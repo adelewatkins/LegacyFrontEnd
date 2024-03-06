@@ -18,9 +18,13 @@ function CartPropTypes(props) {
 
 
   return (
-    <Card style={{ width: '18rem' }}>
+    
+
+    <Card border="dark"  
+    style={{ width: '18rem' }}
+    >
       <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
+        <Card.Title style={{ textAlign: "center" }}>{props.name}</Card.Title>
         <Card.Text>
           < Card.Img src="https://media.istockphoto.com/photos/shopping-basket-with-variety-of-grocery-products-isolated-on-white-picture-id179223663?k=6&m=179223663&s=612x612&w=0&h=YErLythMZRtsl5tojyVWTSRkJYwh_01WyYNrmhXf6GE=" />
         </Card.Text>
@@ -41,6 +45,7 @@ function CartPropTypes(props) {
 
       </Card.Body>
     </Card >
+    
 
 
   );

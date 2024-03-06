@@ -63,13 +63,14 @@ function CartItems() {
             <div className="row">
                 {shopping.items && shopping.items.length > 0 ? (
                     shopping.items.map(item => (
-                        <div key={item.id} className="col-md-4 col-lg-2 col-sml-8">
-                            <Card style={{ width: '18rem', marginBottom: '20px' }}>
+                        <div key={item.id} className="col-md-4 col-lg-3 col-sml-8">
+                           <Card  border="dark" style={{ width: '18rem' }}>
                                 <Card.Body>
-                                    <Card.Title>{item.name}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">{"£" + item.price.toFixed(2)}</Card.Subtitle>
+                                <Card.Img variant="top" src="https://th.bing.com/th/id/R.9b757e2f5b3f68df7186261c36b892c2?rik=X1aQeJyJjP4oaQ&riu=http%3a%2f%2fwww.musicinminnesota.com%2fwp-content%2fuploads%2f2017%2f08%2fPhotos-Coming-Soon.jpg&ehk=aUQtqB0bWSFKlzHvFnqj1Vdzrg1AoQltTvZejPMV4Pk%3d&risl=&pid=ImgRaw&r=0" />
+                                    <Card.Title style={{ textAlign: "center" }}>{item.name}</Card.Title>
+                                    <Card.Subtitle style={{ textAlign: "center" }} className="mb-2 text-muted">{"£" + item.price.toFixed(2)}</Card.Subtitle>
                                     <Card.Text>
-                                        <button style={{ marginLeft: "10px" }} className='btn btn-success '
+                                        <button style={{ marginLeft: "65px" }} className='btn btn-success '
                                             onClick={() => {
                                                 axios.patch("http://localhost:8082/item/checkIn/" + item.id)
                                                     .then(response => {
@@ -83,7 +84,9 @@ function CartItems() {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
+                            
                         </div>
+                        
                     ))
                 ) : (
                     <p>No items in the cart</p>

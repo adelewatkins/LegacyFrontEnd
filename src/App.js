@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import {  Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import Item from "./Components/Item/Item";
 import Cart from "./Components/Cart/Cart";
@@ -12,10 +13,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Login from './Components/Login/Login';
 import Preferences from './Preferences';
+import Footer from './Components/Footer';
+import React from 'react';
+
 
 
 function App() {
   return (
+  <div>
     <Router>
 
       <Navbar sticky="top" bg="light" data-bs-theme="light">
@@ -56,7 +61,13 @@ function App() {
         <Route path="/cart/:id" element={<CartItems />} />
       </Routes>
     </Router>
-  );
+    <Footer />
+
+    </div >
+
+
+
+);
 }
 
 export default App;

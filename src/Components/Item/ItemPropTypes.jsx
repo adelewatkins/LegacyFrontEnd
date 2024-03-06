@@ -53,11 +53,11 @@ function ItemPropTypes(props) {
 
 
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card border="dark" style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://th.bing.com/th/id/R.9b757e2f5b3f68df7186261c36b892c2?rik=X1aQeJyJjP4oaQ&riu=http%3a%2f%2fwww.musicinminnesota.com%2fwp-content%2fuploads%2f2017%2f08%2fPhotos-Coming-Soon.jpg&ehk=aUQtqB0bWSFKlzHvFnqj1Vdzrg1AoQltTvZejPMV4Pk%3d&risl=&pid=ImgRaw&r=0" />
             <Card.Body>
-                <Card.Title>{props.name}</Card.Title>
-                <Card.Text>
+                <Card.Title style={{ textAlign: "center" }}>{props.name}</Card.Title>
+                <Card.Text style={{ textAlign: "center" }}>
                 {"Price: £" + props.price.toFixed(2)}
                 <br/>
                 {"Quantity available: " + props.quantity}
