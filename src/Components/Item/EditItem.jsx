@@ -29,7 +29,7 @@ function EditItem() {
             quantity
     })
     .then(() => {
-      navigate("/items");
+      navigate("/item");
     })
     .catch((error) => console.error(error));
 };

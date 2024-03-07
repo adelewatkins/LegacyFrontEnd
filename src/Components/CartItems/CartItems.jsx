@@ -49,7 +49,7 @@ function CartItems() {
             <h1>Your Cart Summary</h1>
             <br />
             <button onClick={() =>
-                navigate("/items")
+                navigate("/item")
             } style={{ marginRight: "10px" }} type="submit" className="btn btn-info btn-md">
                 Continue Shopping</button>
             <br />
