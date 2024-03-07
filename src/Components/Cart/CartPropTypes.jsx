@@ -8,7 +8,7 @@ function CartPropTypes(props) {
   const navigate = useNavigate();
 
   function deleteCart() {
-    axios.delete("http://localhost:8082/cart/remove/" + props.id)
+    axios.delete("/cart/remove/" + props.id)
       .then(response => { props.getCarts() })
       .catch(err => console.error(err))
   };

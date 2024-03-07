@@ -10,7 +10,7 @@ function Item() {
     
 
     function getItems() {
-        axios.get("http://localhost:8082/item/get")
+        axios.get("/item/get")
             .then((response) => { setItems(response.data) })
     }
     useEffect(getItems, [])
@@ -20,7 +20,7 @@ function Item() {
     function checkItem() {
 
 
-        axios.get("http://localhost:8082/item/get").then(response => {
+        axios.get("/item/get").then(response => {
             console.log(response)
             // for (const items of response.data) {
             //     if (items.name.toLowerCase() === name.toLowerCase()) {
@@ -29,7 +29,7 @@ function Item() {
             //     }
             // }
 
-            axios.post("http://localhost:8082/item/create",
+            axios.post("/item/create",
                 {
                     name,
                     price: formatedPrice,

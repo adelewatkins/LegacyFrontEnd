@@ -10,14 +10,14 @@ function Cart(props) {
 
 
   function getCarts() {
-    axios.get("http://localhost:8082/cart/get")
+    axios.get("/cart/get")
       .then((response) => { setCarts(response.data) })
   }
 
   useEffect(getCarts, [])
 
   function createCarts() {
-    axios.post("http://localhost:8082/cart/create",
+    axios.post("/cart/create",
       {
         name
       })

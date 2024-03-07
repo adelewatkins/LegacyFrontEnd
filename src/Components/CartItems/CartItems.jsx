@@ -13,7 +13,7 @@ function CartItems() {
 
 
     function shoppingBasket() {
-        axios.get("http://localhost:8082/cart/get/" + params.id)
+        axios.get("/cart/get/" + params.id)
             .then((response) => {
                 console.log("response" + response.data);
                 setShopping(response.data);
@@ -72,7 +72,7 @@ function CartItems() {
                                     <Card.Text>
                                         <button style={{ marginLeft: "65px" }} className='btn btn-success '
                                             onClick={() => {
-                                                axios.patch("http://localhost:8082/item/checkIn/" + item.id)
+                                                axios.patch("/item/checkIn/" + item.id)
                                                     .then(response => {
                                                         console.log('Item removed from cart', response.data);
                                                         shoppingBasket();

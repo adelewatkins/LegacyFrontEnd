@@ -10,7 +10,7 @@ function EditItem() {
     const [quantity, setQuantity] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8082/item/get/" + params.id)
+        axios.get("/item/get/" + params.id)
         .then((res) => {
             console.log(res);
             setName(res.data.name);
@@ -23,7 +23,7 @@ function EditItem() {
         e.preventDefault();
 
         axios
-        .put("http://localhost:8082/item/edit/" + params.id, {
+        .put("/item/edit/" + params.id, {
             name,
             price,
             quantity

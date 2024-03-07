@@ -8,7 +8,7 @@ function EditCart() {
     const [name, setName] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8082/cart/get/" + params.id)
+        axios.get("/cart/get/" + params.id)
             .then((res) => {
                 console.log(res);
                 setName(res.data.name);
@@ -19,7 +19,7 @@ function EditCart() {
         e.preventDefault();
 
         axios
-            .put("http://localhost:8082/cart/edit/" + params.id, {
+            .put("/cart/edit/" + params.id, {
                 name
             })
             .then(() => {
