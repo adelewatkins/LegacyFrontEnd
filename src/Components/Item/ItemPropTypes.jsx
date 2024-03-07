@@ -24,6 +24,7 @@ function ItemPropTypes(props) {
               navigate("/cart/1/")
           })
           .catch(error => {
+            alert('Please create a cart before shopping.')
               console.error('Error adding item to cart:', error);
           });
   }
