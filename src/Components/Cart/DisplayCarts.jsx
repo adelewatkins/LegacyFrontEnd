@@ -1,0 +1,29 @@
+import CartPropTypes from "./CartPropTypes";
+
+function DisplayCarts(props) {
+    
+    const cartArray = [];
+    for (const cart of props.carts) {
+        cartArray.push(
+          <CartPropTypes
+            key={cart.name + " " + cart.id}
+            id={cart.id}
+            name={cart.name}
+            getCarts={props.getCarts}
+          />
+        );
+      }
+    
+    return ( 
+        <div>
+            <br />
+            <div className="container-fluid">
+                <div className="row">{cartArray}</div>
+            </div>
+        </div>
+
+
+     );
+}
+
+export default DisplayCarts;
