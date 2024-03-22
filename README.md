@@ -1,5 +1,4 @@
-# Getting Started with Create React App
- Legacy project front end. Tasked with modernising back-end legacy code to create a full stack application using SpringBoot and React
+Legacy project front end. Tasked with modernising back-end legacy code to create a full stack application using SpringBoot and React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
